@@ -9,8 +9,9 @@ mydata$Date <- as.Date(mydata$Date, format="%d/%m/%Y")
 # Just the 2 days data
 newdata <- subset(mydata, Date == "2007-02-01" | Date == "2007-02-02")
 newdata$Global_active_power <- as.numeric(newdata$Global_active_power)
-# To kilowatts
-newdata$Global_active_power <- newdata$Global_active_power / 1000
+
+# Correct X scale
+newdata$Global_active_power <- newdata$Global_active_power / 500
 
 # Plot2
 png("plot2.png", width = 480, height = 480)
